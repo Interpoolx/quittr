@@ -12,6 +12,8 @@ import {
     Modal,
     Alert,
 } from 'react-native';
+import { useAppSelector, useAppDispatch } from '../../src/hooks/useStore';
+import { addXP, startChallenge } from '../../src/store/slices/userSlice';
 import { Colors } from '../../src/constants/colors';
 import { Spacing, BorderRadius } from '../../src/constants/layout';
 import { FontSizes, FontWeights } from '../../src/constants/typography';
@@ -69,6 +71,9 @@ interface Message {
 }
 
 export default function LearnScreen() {
+    const dispatch = useAppDispatch();
+    const stats = useAppSelector((state) => state.user.stats);
+    const activeChallenge = stats.activeChallenge;
     const [activeTab, setActiveTab] = useState<TabType>('learn');
     const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('all');
     const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
@@ -191,14 +196,31 @@ export default function LearnScreen() {
                     ))}
 
                     {/* 90-Day Challenge Banner */}
-                    <View style={styles.challengeBanner}>
+                    <View style={styles.challengeCard}>
                         <Text style={styles.challengeEmoji}>🏆</Text>
                         <Text style={styles.challengeTitle}>90-Day Reboot Challenge</Text>
                         <Text style={styles.challengeDescription}>
-                            Complete the scientifically-designed program to rewire your brain
+                            {activeChallenge
+                                ? `You are currently on Day ${activeChallenge.currentDay} of the 90-day journey. Keep going!`
+                                : "Complete the scientifically-designed program to rewire your brain"}
                         </Text>
-                        <TouchableOpacity style={styles.challengeButton} onPress={() => setShowChallengeModal(true)}>
-                            <Text style={styles.challengeButtonText}>Start Challenge</Text>
+                        <TouchableOpacity
+                            style={styles.challengeButton}
+                            onPress={() => {
+                                if (activeChallenge) {
+                                    // Assuming 'router' is available for navigation, e.g., from 'expo-router' or 'react-navigation'
+                                    // If not, this line would need to be adapted or removed based on the actual navigation setup.
+                                    // For this example, we'll assume a placeholder for navigation.
+                                    // router.push('/(tabs)/challenges'); 
+                                    Alert.alert("View Progress", "Navigation to challenges screen would go here.");
+                                } else {
+                                    setShowChallengeModal(true);
+                                }
+                            }}
+                        >
+                            <Text style={styles.challengeButtonText}>
+                                {activeChallenge ? "View My Progress" : "Start Challenge"}
+                            </Text>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
@@ -335,6 +357,7 @@ export default function LearnScreen() {
                             <TouchableOpacity
                                 style={styles.startChallengeButton}
                                 onPress={() => {
+                                    dispatch(startChallenge('90-day-reboot'));
                                     setShowChallengeModal(false);
                                     const message = 'You\'ve committed to the 90-day reboot challenge. Your journey begins now!\n\nStay strong, track your progress, and remember - every day counts.';
                                     Alert.alert('🎉 Challenge Started!', message, [{ text: 'Let\'s Go!' }]);
@@ -469,7 +492,7 @@ const styles = StyleSheet.create({
         fontSize: FontSizes.xs,
         color: Colors.dark.textMuted,
     },
-    challengeBanner: {
+    challengeCard: {
         backgroundColor: Colors.primary + '15',
         borderRadius: BorderRadius.xl,
         padding: Spacing.lg,

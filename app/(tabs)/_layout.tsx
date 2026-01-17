@@ -99,6 +99,13 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
+                name="challenges"
+                options={{
+                    href: null,
+                    title: 'Challenges',
+                }}
+            />
+            <Tabs.Screen
                 name="community"
                 options={{
                     href: null,

@@ -64,6 +64,29 @@ export interface Achievement {
     xpReward: number;
 }
 
+// Challenge Types
+export interface Challenge {
+    id: string;
+    title: string;
+    description: string;
+    durationDays: number;
+    icon: string;
+    phases: {
+        title: string;
+        description: string;
+        range: [number, number]; // [startDay, endDay]
+    }[];
+    benefits: string[];
+}
+
+export interface UserChallenge {
+    challengeId: string;
+    startDate: string; // ISO date string
+    status: 'active' | 'completed' | 'failed';
+    currentDay: number;
+    lastUpdated: string;
+}
+
 // User Stats
 export interface UserStats {
     currentStreak: number;
@@ -76,6 +99,7 @@ export interface UserStats {
     totalXP: number;
     level: number;
     achievements: string[]; // achievement IDs
+    activeChallenge: UserChallenge | null;
 }
 
 // App Settings

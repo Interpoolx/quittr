@@ -21,6 +21,7 @@ const initialStats: UserStats = {
     totalXP: 0,
     level: 1,
     achievements: [],
+    activeChallenge: null,
 };
 
 const initialState: UserState = {
@@ -95,6 +96,35 @@ const userSlice = createSlice({
                 state.profile.customTriggers.push(action.payload);
             }
         },
+        startChallenge: (state, action: PayloadAction<string>) => {
+            state.stats.activeChallenge = {
+                challengeId: action.payload,
+                startDate: new Date().toISOString(),
+                status: 'active',
+                currentDay: 1,
+                lastUpdated: new Date().toISOString(),
+            };
+        },
+        updateChallengeProgress: (state) => {
+            if (state.stats.activeChallenge && state.stats.activeChallenge.status === 'active') {
+                const startDate = new Date(state.stats.activeChallenge.startDate);
+                const today = new Date();
+                const diffTime = Math.abs(today.getTime() - startDate.getTime());
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                state.stats.activeChallenge.currentDay = diffDays;
+                state.stats.activeChallenge.lastUpdated = new Date().toISOString();
+            }
+        },
+        completeChallenge: (state) => {
+            if (state.stats.activeChallenge) {
+                state.stats.activeChallenge.status = 'completed';
+            }
+        },
+        failChallenge: (state) => {
+            if (state.stats.activeChallenge) {
+                state.stats.activeChallenge.status = 'failed';
+            }
+        },
         resetUser: () => initialState,
     },
 });
@@ -113,6 +143,10 @@ export const {
     addMotivation,
     removeMotivation,
     addCustomTrigger,
+    startChallenge,
+    updateChallengeProgress,
+    completeChallenge,
+    failChallenge,
     resetUser,
 } = userSlice.actions;
 

@@ -99,3 +99,38 @@ export const RECOVERY_TIMELINE = [
     { days: 180, benefit: 'Enhanced relationships and intimacy', category: 'relationships' },
     { days: 365, benefit: 'Full brain chemistry restoration', category: 'mental' },
 ] as const;
+
+// Challenges Data
+export const CHALLENGES = [
+    {
+        id: '90-day-reboot',
+        title: '90-Day Reboot Challenge',
+        description: 'Complete the scientifically-designed program to rewire your brain',
+        durationDays: 90,
+        icon: '🏆',
+        phases: [
+            {
+                title: 'Phase 1: Detox',
+                description: 'Days 1-30. Your brain begins adjusting to the absence of the habit.',
+                range: [1, 30],
+            },
+            {
+                title: 'Phase 2: Rewiring',
+                description: 'Days 31-60. New neural pathways form. Improved focus and stability.',
+                range: [31, 60],
+            },
+            {
+                title: 'Phase 3: Transformation',
+                description: 'Days 61-90. Reward system rebalances. Renewed life appreciation.',
+                range: [61, 90],
+            },
+        ],
+        benefits: [
+            'Improved mental clarity',
+            'Better emotional regulation',
+            'Increased confidence',
+            'More time & energy',
+            'Healthier relationships',
+        ],
+    },
+] as const;

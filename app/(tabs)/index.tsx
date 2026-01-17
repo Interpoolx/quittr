@@ -13,7 +13,7 @@ import { useAppSelector } from '../../src/hooks/useStore';
 import { Colors } from '../../src/constants/colors';
 import { Spacing, BorderRadius } from '../../src/constants/layout';
 import { FontSizes, FontWeights } from '../../src/constants/typography';
-import { MILESTONE_DAYS } from '../../src/constants';
+import { MILESTONE_DAYS, CHALLENGES } from '../../src/constants';
 import { differenceInSeconds } from 'date-fns';
 import { RecoveryOrb } from '../../src/components/RecoveryOrb';
 
@@ -189,6 +189,35 @@ export default function DashboardScreen() {
                         <Text style={styles.statLabel}>Total XP</Text>
                     </View>
                 </View>
+
+                {/* Active Challenge Card */}
+                {stats.activeChallenge && stats.activeChallenge.status === 'active' && (
+                    <TouchableOpacity
+                        style={styles.challengeCard}
+                        onPress={() => router.push('/(tabs)/challenges')}
+                    >
+                        <View style={styles.challengeHeader}>
+                            <View style={styles.challengeInfo}>
+                                <Text style={styles.challengeLabel}>Active Challenge</Text>
+                                <Text style={styles.challengeName}>
+                                    {CHALLENGES.find(c => c.id === stats.activeChallenge?.challengeId)?.title || '90-Day Reboot'}
+                                </Text>
+                            </View>
+                            <Text style={styles.challengeDay}>Day {stats.activeChallenge.currentDay}/90</Text>
+                        </View>
+                        <View style={styles.challengeProgressBar}>
+                            <View
+                                style={[
+                                    styles.challengeProgressFill,
+                                    { width: `${Math.min(100, (stats.activeChallenge.currentDay / 90) * 100)}%` }
+                                ]}
+                            />
+                        </View>
+                        <Text style={styles.challengeStatus}>
+                            You are in {stats.activeChallenge.currentDay <= 30 ? 'Phase 1: Detox' : stats.activeChallenge.currentDay <= 60 ? 'Phase 2: Rewiring' : 'Phase 3: Transformation'}
+                        </Text>
+                    </TouchableOpacity>
+                )}
 
                 {/* Milestone Card */}
                 <View style={styles.milestoneCard}>
@@ -462,5 +491,60 @@ const styles = StyleSheet.create({
         fontStyle: 'italic',
         color: Colors.dark.textSecondary,
         lineHeight: 24,
+    },
+    // Challenge Card Styles
+    challengeCard: {
+        backgroundColor: Colors.primary + '15',
+        borderRadius: BorderRadius.xl,
+        padding: Spacing.lg,
+        marginBottom: Spacing.lg,
+        borderWidth: 1,
+        borderColor: Colors.primary + '30',
+    },
+    challengeHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        marginBottom: Spacing.md,
+    },
+    challengeInfo: {
+        flex: 1,
+    },
+    challengeLabel: {
+        fontSize: FontSizes.xs,
+        color: Colors.primary,
+        fontWeight: FontWeights.bold,
+        textTransform: 'uppercase',
+        marginBottom: 2,
+    },
+    challengeName: {
+        fontSize: FontSizes.lg,
+        fontWeight: FontWeights.bold,
+        color: Colors.dark.textPrimary,
+    },
+    challengeDay: {
+        fontSize: FontSizes.base,
+        fontWeight: FontWeights.bold,
+        color: Colors.primary,
+        backgroundColor: Colors.primary + '20',
+        paddingHorizontal: Spacing.sm,
+        paddingVertical: 4,
+        borderRadius: BorderRadius.md,
+    },
+    challengeProgressBar: {
+        height: 8,
+        backgroundColor: Colors.dark.surfaceVariant,
+        borderRadius: 4,
+        marginBottom: Spacing.sm,
+        overflow: 'hidden',
+    },
+    challengeProgressFill: {
+        height: '100%',
+        backgroundColor: Colors.primary,
+        borderRadius: 4,
+    },
+    challengeStatus: {
+        fontSize: FontSizes.sm,
+        color: Colors.dark.textSecondary,
     },
 });
