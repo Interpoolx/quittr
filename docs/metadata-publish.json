@@ -1,0 +1,165 @@
+{
+    "appName": "Quittr: Quit Porn Addiction",
+    "shortDescription": "Free porn addiction recovery - Track sobriety, log urges, and build healthier habits with complete privacy",
+    "fullDescription": "🛡️ RECOVER FROM PORN ADDICTION - 100% FREE & PRIVATE\n\nQuittr is a compassionate, evidence-based recovery companion designed to help you break free from pornography addiction. Unlike other apps, Quittr is completely free with no subscriptions, no account required, and all your data stays on your device.\n\n⏱️ SOBRIETY COUNTER\n• Real-time tracking of your recovery journey (days, hours, minutes, seconds)\n• Milestone celebrations at key recovery points (1, 3, 7, 14, 30, 60, 90+ days)\n• Progress visualization to keep you motivated\n\n🆘 PANIC BUTTON\n• Instant support during intense urges and cravings\n• Multi-step intervention with breathing exercises\n• Grounding techniques (5-4-3-2-1 method)\n• Motivational reminders of your reasons for change\n• Distraction activities to redirect your focus\n\n📊 URGE TRACKING\n• Log urges with intensity levels (1-10 scale)\n• Track your triggers (stress, boredom, loneliness, etc.)\n• Monitor your resistance rate over time\n• Identify patterns to prevent future relapses\n• Earn XP (+10) for each resisted urge\n\n📓 DAILY JOURNAL\n• Daily writing prompts for self-reflection\n• Mood, energy, and sleep tracking\n• Check-in system to monitor well-being\n• Private space to process your thoughts\n• XP rewards for consistent journaling\n\n🏆 GAMIFICATION & MOTIVATION\n• Level up system with XP rewards\n• 17+ achievements to unlock\n• Visual progress tracking\n• Milestone badges for key recovery points\n\n🔒 PRIVACY FIRST\n• No account or sign-up required\n• All data stored locally on your device\n• No analytics or tracking\n• Optional PIN lock for extra security\n• Biometric authentication support\n• App disguise feature to hide the app\n\n💙 COMPASSIONATE RECOVERY\n• Non-judgmental, supportive approach\n• Science-based recovery techniques\n• Cognitive Behavioral Therapy (CBT) principles\n• Focus on progress, not perfection\n• \"Slip\" vs \"relapse\" mindset\n\n🌟 WHY CHOOSE QUITTR?\n\n✓ 100% FREE - No subscriptions, no hidden costs\n✓ No account needed - Start immediately\n✓ Complete privacy - Your data never leaves your phone\n✓ Evidence-based - Built on addiction science\n✓ Compassionate - Supportive, not shaming\n✓ Offline first - Works without internet\n\nRecovery is possible. Every day is a new opportunity to become the person you want to be. Start your journey today with Quittr.\n\n⚠️ DISCLAIMER: Quittr is a recovery support tool, not a replacement for professional help. If you're struggling, please seek support from a qualified mental health professional.",
+    "category": "Health & Fitness",
+    "contentRating": "Mature 17+",
+    "keywords": [
+        "porn addiction",
+        "quit porn",
+        "nofap",
+        "porn blocker",
+        "addiction recovery",
+        "sobriety tracker",
+        "urge tracker",
+        "mental health",
+        "self improvement",
+        "habit tracker",
+        "recovery app",
+        "pornography addiction",
+        "addiction help",
+        "clean streak",
+        "mindfulness"
+    ],
+    "developer": {
+        "name": "Quittr Recovery",
+        "email": "support@quittr.app",
+        "website": "https://quittr.app",
+        "privacyPolicyUrl": "https://quittr.app/privacy-policy",
+        "address": ""
+    },
+    "appDetails": {
+        "packageName": "app.quittr.recovery",
+        "iosBundleId": "app.quittr.recovery",
+        "version": "1.0.0",
+        "buildNumber": 1,
+        "targetSdk": 34,
+        "minSdk": 23
+    },
+    "pricing": {
+        "model": "free",
+        "containsAds": false,
+        "inAppPurchases": false,
+        "subscriptions": false
+    },
+    "graphics": {
+        "icon": {
+            "size": "512x512",
+            "format": "PNG",
+            "path": "./assets/icon.png"
+        },
+        "featureGraphic": {
+            "size": "1024x500",
+            "format": "PNG or JPEG",
+            "path": "./assets/feature-graphic.png"
+        },
+        "screenshots": {
+            "phone": {
+                "min": 2,
+                "max": 8,
+                "recommended": [
+                    "Dashboard with sobriety counter",
+                    "Panic button emergency screen",
+                    "Urge logging with triggers",
+                    "Journal with daily prompt",
+                    "Profile with achievements",
+                    "Settings and privacy features"
+                ]
+            },
+            "tablet": {
+                "min": 0,
+                "max": 8
+            }
+        }
+    },
+    "localization": {
+        "defaultLanguage": "en-US",
+        "supportedLanguages": [
+            "en-US"
+        ]
+    },
+    "playStore": {
+        "targetCountries": "All countries",
+        "distributionType": "Production",
+        "appType": "Application",
+        "isFree": true,
+        "containsAds": false,
+        "targetAudience": "Adults only (18+)",
+        "dataPrivacy": {
+            "dataCollected": false,
+            "dataShared": false,
+            "dataEncrypted": true,
+            "accountRequired": false,
+            "dataDeletion": "Users can delete all data from within the app"
+        }
+    },
+    "appStore": {
+        "primaryCategory": "Health & Fitness",
+        "secondaryCategory": "Lifestyle",
+        "ageRating": "17+",
+        "contentDescriptions": [
+            "Infrequent/Mild Mature/Suggestive Themes"
+        ]
+    },
+    "featureComparison": {
+        "originalQUITTR": {
+            "sobrietyTracker": true,
+            "panicButton": true,
+            "contentBlocker": true,
+            "aiTherapist": true,
+            "community": true,
+            "personalizedPlan": true,
+            "educationalContent": true,
+            "gamification": true,
+            "lifeTree": true,
+            "achievements": true,
+            "breathingExercises": true,
+            "premiumSubscription": true
+        },
+        "ourApp": {
+            "sobrietyTracker": true,
+            "panicButton": true,
+            "contentBlocker": false,
+            "aiTherapist": false,
+            "community": false,
+            "personalizedPlan": false,
+            "educationalContent": false,
+            "gamification": true,
+            "lifeTree": false,
+            "achievements": true,
+            "breathingExercises": true,
+            "premiumSubscription": false
+        },
+        "uniqueAdvantages": [
+            "100% free with no subscriptions",
+            "No account required",
+            "Complete offline functionality",
+            "All data stays on device",
+            "Open source friendly approach",
+            "No ads or tracking"
+        ],
+        "missingFeatures": [
+            "Content blocker / porn filter",
+            "AI therapist chatbot",
+            "Community forum",
+            "90-day personalized plan",
+            "Life tree visualization",
+            "Educational modules/lessons"
+        ]
+    },
+    "releaseNotes": {
+        "v1.0.0": [
+            "Initial release",
+            "Real-time sobriety counter with seconds display",
+            "Panic button with multi-step intervention (breathe, ground, motivate, distract)",
+            "Urge logging with intensity slider and triggers",
+            "Daily journal with prompts and mood tracking",
+            "XP and leveling system with 17+ achievements",
+            "Profile with settings and data management",
+            "PIN lock and biometric authentication options",
+            "App disguise feature for privacy",
+            "Complete offline functionality",
+            "Redux Persist for data persistence"
+        ]
+    }
+}
